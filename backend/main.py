@@ -1,9 +1,9 @@
 import os
 from flask import Flask
-from backend.app.routes import auth, main, admin
-from backend.app.api import api
-from backend.db.init_db import init_db
-from backend.db.database import SessionLocal
+from app.routes import auth, main, admin
+from app.api import api
+from db.init_db import init_db
+from db.database import SessionLocal
 
 def create_app():
     """Application factory function."""

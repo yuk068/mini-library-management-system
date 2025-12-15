@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
-from backend.app.crud import (
+from app.crud import (
     authenticate_user, create_user, search_books, get_all_books, 
     borrow_book, return_book, get_user_borrowings, 
     create_book, update_book, delete_book, get_book_by_id,
     get_all_users_with_borrowing_status # <-- Added new function
 )
-from backend.app.utils import login_required, role_required
-from backend.db.database import get_db
+from app.utils import login_required, role_required
+from db.database import get_db
 
 # Create blueprints for modular routing
 auth = Blueprint('auth', __name__, url_prefix='/')

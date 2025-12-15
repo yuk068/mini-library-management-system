@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from werkzeug.security import generate_password_hash
-from backend.db.database import engine, Base, SessionLocal
-from backend.app.models import User, Book, Borrowing
+from db.database import engine, Base, SessionLocal
+from app.models import User, Book, Borrowing
 
 def init_db(db: Session):
     """Initializes the database, creates tables, and seeds initial data."""

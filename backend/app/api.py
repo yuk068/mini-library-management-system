@@ -1,11 +1,11 @@
 from flask import Blueprint, request, jsonify
-from backend.app.crud import (
+from app.crud import (
     get_all_books, get_book_by_id, create_book, update_book, delete_book,
     get_all_users_with_borrowing_status, get_user_borrowings, borrow_book, return_book,
     delete_user
 )
-from backend.app.utils import login_required, role_required
-from backend.db.database import get_db
+from app.utils import login_required, role_required
+from db.database import get_db
 
 api = Blueprint('api', __name__, url_prefix='/api')
 
@@ -121,7 +121,7 @@ def api_delete_own_account():
         session.clear()
         return jsonify({'result': 'Account deleted'})
     # Check if user exists and has active borrowings
-    from backend.app.models import Borrowing
+    from app.models import Borrowing
     active_borrowings = db.query(Borrowing).filter(Borrowing.user_id == user_id, Borrowing.status == 'borrowed').count()
     if active_borrowings > 0:
         return jsonify({'error': 'You cannot delete your account while you have borrowed books. Please return all books first.'}), 400

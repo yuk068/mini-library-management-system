@@ -2,8 +2,8 @@ from sqlalchemy.orm import Session, joinedload # Added joinedload
 from sqlalchemy import or_
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from backend.app.models import User, Book, Borrowing
-from backend.db.database import get_db
+from app.models import User, Book, Borrowing
+from db.database import get_db
 
 ### --- User and Authentication CRUD --- ###
 

@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from backend.db.database import Base
+from db.database import Base
 
 class User(Base):
     """Represents a user in the library system (member or admin)."""
